@@ -10,8 +10,7 @@
             menu.find('ul li > a').bind('click',function(){
             if ($(this).parent().hasClass('active')){
                 $(this).parent().removeClass('active');
-            }
-            else{
+            }else{
                 $(this).parent().parent().find('.active').removeClass('active');
                 $(this).parent().addClass('active');
             }
