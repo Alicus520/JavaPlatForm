@@ -27,7 +27,7 @@
 	<!--  Action Mapping Definitions -->
 
     <action-mappings>
-       <action path="/index" forward=""/>
+       <action path="/index" forward="/index.jsp"/>
     </action-mappings>
 	
 	<!-- Controller Definitions -->

@@ -1,7 +1,5 @@
 @CHARSET "UTF-8";
 
-@CHARSET "UTF-8";
-
 .top{
 	 float:left;
 	 font-size: 10pt;
@@ -33,6 +31,7 @@
 }
 
 .search_form{
+	clear:both;
 	margin-top:5%;
 }
 
