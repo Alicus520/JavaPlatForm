@@ -1,5 +1,13 @@
 package cn.com.jpf.common.exception;
 
+/**
+ * JavaPlatForm Project self-defination Exception object 
+ * 
+ * @author Alicus
+ * @date 2012-1-12
+ * @version 0.1
+ * 
+ */
 public class JpfException extends RuntimeException {
 	
 	/**
@@ -7,16 +15,28 @@ public class JpfException extends RuntimeException {
 	 */
 	private static final long serialVersionUID = -77451080085341862L;
 	
+	/** 
+	 * Warning type
+	 * this type information will not be written to log file
+	 */
 	public static final int INFTYPE_WARNING = 1;
 	
+	/**
+	 * Error type
+	 * this type information will be written to log file
+	 */
 	public static final int INFTYPE_ERROR = 2;
 	
+	/**
+	 * Information type
+	 * Default type is warning
+	 */
 	private int infType = INFTYPE_WARNING;
 	
 	private boolean showDetail = false;
 	
 	private String clientCode = "";
-
+	
 	public JpfException(){}
 	
 	public JpfException(String message){

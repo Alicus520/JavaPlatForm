@@ -1,5 +1,5 @@
 package cn.com.jpf.ibatis.dao;
 
-public class WikiDao extends CommonDao {
+public class WikiDao extends BaseDao {
 
 }

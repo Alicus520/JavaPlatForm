@@ -8,6 +8,16 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
+/**
+ * AbstractCommonAction for every action class
+ * 
+ * Deal with the request code and resposne type
+ * 
+ * @author administrator
+ * @date 2012-1-12
+ * @version 0.1
+ * 
+ */
 public abstract class AbstractCommonActon extends DispatchAction {
 	
 	@Override

@@ -1,5 +1,5 @@
 package cn.com.jpf.ibatis.service;
 
-public interface CommonService {
+public interface BaseService {
 	
 }
