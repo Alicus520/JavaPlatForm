@@ -21,6 +21,10 @@
 			<param-name>config/demo</param-name>
 			<param-value>/WEB-INF/struts-demo-config.xml</param-value>
 		</init-param>
+		<init-param>
+			<param-name>config/est</param-name>
+			<param-value>/WEB-INF/struts-est-config.xml</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>

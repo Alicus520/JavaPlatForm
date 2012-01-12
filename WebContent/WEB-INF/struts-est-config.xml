@@ -15,21 +15,19 @@
 	<!-- Global Exception Definitions -->
 
     <global-exceptions>
-    	<exception key="" type=""></exception>
+    
     </global-exceptions>
 
 	<!-- Global Forward Definitions -->
 
     <global-forwards>
-  		<forward name="error" path=""></forward>
+  
     </global-forwards>
 
 	<!--  Action Mapping Definitions -->
 
     <action-mappings>
-       <action path="/init" type="cn.com.jpf.ibatis.demo.action.DemoAction" parameter="method">
-       		<forward name="success" path="index.html"></forward>
-       </action>
+       <action path="/text" forward="/../cn/com/jpf/text/index.jsp"></action>
     </action-mappings>
 	
 	<!-- Controller Definitions -->
