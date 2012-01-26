@@ -3,5 +3,26 @@
 	PUBLIC "-//SPRING//DTD BEAN 2.0//EN" 
 	"http://www.springframework.org/dtd/spring-beans-2.0.dtd" >
 <beans>
+	<bean id="DBConfigproperty" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:db.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- dataSource -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${driver}" />  
+        <property name="url" value="${url}" />  
+        <property name="username" value="${username}" />  
+        <property name="password" value="${password}" />  
+	</bean>
+	
+	<!-- SqlMapClient -->
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="classpath:SqlMapConfig.xml"></property>
+		<property name="dataSource" ref="dataSource"></property>
+	</bean> 
 	
 </beans>
