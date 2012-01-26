@@ -21,10 +21,11 @@ public class DataSourceServiceFactory implements IDataSourceServiceFactory {
 	
 	@Override
 	public DataSourcePool getDataSourcePool() {
-		return new DataSourcePool("com.mysql.jdbc.Driver"
-                ,"jdbc:mysql://localhost:3306/javaplatform"
-                ,"root"
-                ,"root");
+//		return new DataSourcePool("com.mysql.jdbc.Driver"
+//                ,"jdbc:mysql://localhost:3306/javaplatform"
+//                ,"root"
+//                ,"root");
+		return null;
 	}
 
 }
