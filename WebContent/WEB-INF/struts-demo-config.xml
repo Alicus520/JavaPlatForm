@@ -30,6 +30,8 @@
        <action path="/init" type="cn.com.jpf.ibatis.demo.action.DemoAction" parameter="method">
        		<forward name="success" path="index.html"></forward>
        </action>
+       
+       <action path="/index" forward="/../cn/com/jpf/demo/index.jsp"></action>
     </action-mappings>
 	
 	<!-- Controller Definitions -->

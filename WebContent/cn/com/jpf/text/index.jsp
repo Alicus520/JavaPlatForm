@@ -5,23 +5,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="<%=request.getContextPath()%>/common/load-css.jsp"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/common/load-jquery.jsp"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery/jquery-1.3.2.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/cn/com/jpf/text/index.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function(){
+		$("removemoreline").click(function(){
+			alert('123');
+		});
+	});
 </script>
 </head>
 <body>
-	<div>ExtremeSpeedTool for Text </div>
-	<div id="main">
-		<div id="left" style="float:left">
-		    <input type="button" id="test" value="test"/>
-			<a id="removeMultiple">removeMultiple</a>
-			<a></a>
+	<div>
+		<div id="toolbar">
+			<input id="removemoreline" name="removemoreline" value="removemoreline" type="button"/>
 		</div>
-		<div id="right" style="float:right">
-			Hello This is right
+		<div id="main">
+			<div id="left" class="float:left">
+				source:
+				<textarea id="source" rows="20" cols="50"></textarea>
+			</div>
+			<div id="right" class="float:right">
+				result:
+				<textarea id="result" rows="20" cols="50">
+				
+				</textarea>
+			</div>
 		</div>
 	</div>
 </body>

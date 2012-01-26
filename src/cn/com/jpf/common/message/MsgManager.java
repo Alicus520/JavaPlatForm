@@ -3,9 +3,11 @@ package cn.com.jpf.common.message;
 import java.util.Hashtable;
 import java.util.Locale;
 
+import org.apache.log4j.Logger;
 import org.apache.struts.util.MessageResources;
 import org.apache.struts.util.MessageResourcesFactory;
 
+import cn.com.jpf.common.exception.JpfException;
 import cn.com.jpf.common.utils.StringUtil;
 
 /**
@@ -15,6 +17,8 @@ import cn.com.jpf.common.utils.StringUtil;
  * @version 0.1
  */
 public final class MsgManager {
+	
+	private static Logger logger = Logger.getLogger(MsgManager.class);
 	
 	/**
 	 * Default Message Property's name 
@@ -84,7 +88,8 @@ public final class MsgManager {
 	 */
 	public final static void createBundle(String propertyFileName){
 		if(propertyFileName == null){
-			//TODO throw a exception
+			throw new JpfException(
+					MsgManager.getInstance().getLocaleString("error.message.nopropertyfilename"));
 		}
 		
 		MessageResources res = null;
@@ -103,6 +108,8 @@ public final class MsgManager {
 		String bundleName = object.getBundleName();
 		
 		if(MsgManager.messagesBundles.get(bundleName) != null){
+			logger.debug(MsgManager.getInstance()
+					.getLocaleString("warn.message.bundleNameIsExists"));
 		}else{
 			MsgManager.messagesBundles.put(bundleName, object);
 		}
@@ -111,7 +118,6 @@ public final class MsgManager {
 	
 	public String getLocaleString(String key){
 		return this.getLocaleString(key, defaultLocale);
-		
 	}
 	
 	public String getLocaleString(String key, Locale locale){
@@ -122,6 +128,7 @@ public final class MsgManager {
 			return key;
 		}
 	}
+	
 	public String getLocaleString(String key, Object[] args){
 		String result = this.resources.getMessage(key, args);
 		return result;
@@ -140,5 +147,4 @@ public final class MsgManager {
 	public void setBundleName(String bundleName) {
 		this.bundleName = bundleName;
 	}
-	
 }
