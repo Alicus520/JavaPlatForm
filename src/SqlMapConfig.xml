@@ -4,9 +4,4 @@
 	"http://www.ibatis.com/dtd/sql-map-config-2.dtd">
 <sqlMapConfig>
 
-	
-	<sqlMap resource ="cn/com/jpf/ibatis/sqlmap/wiki_file.xml"/>
-	<sqlMap resource ="cn/com/jpf/ibatis/sqlmap/wiki_tree.xml"/>
-	
-	<sqlMap resource="cn/com/jpf/ibatis/sqlmap/finance_record.xml"/>
 </sqlMapConfig> 
