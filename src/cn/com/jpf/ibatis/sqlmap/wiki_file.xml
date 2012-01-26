@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap           
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"           
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">    
+<sqlMap namespace="File">
+	<typeAlias alias="file" type="cn.com.jpf.wiki.pojo.File"/>  
+
+	<resultMap class="file" id="FileResult">
+		<result property="id" column="ID" />
+		<result property="title" column="TITLE"/>
+		<result property="category" column="CATEGORY" />
+		<result property="categoryName" column="CATEGORYNAME"/>
+		<result property="content" column="CONTENT" />
+		<result property="attach" column="ATTACH" />
+		<result property="author" column="AUTHOR" />
+		<result property="updtime" column="UPDTIME" />
+		<result property="status" column="STATUS" />
+	</resultMap>
+	
+	<parameterMap id="procParamMap" class="java.util.HashMap" >  
+	    <parameter property="fileId" jdbcType="INTEGER" javaType="java.lang.Integer" mode="IN"/>  
+	    <parameter property="mode" jdbcType="INTEGER" javaType="java.lang.Integer" mode="IN"/>  
+	    <parameter property="content" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>  
+  	</parameterMap>  
+  
+	<!-- query all files -->
+	<select id="selectAllFiles" resultMap="FileResult">
+		SELECT ID,TITLE,CATEGORY,CONTENT,ATTACH,AUTHOR,UPDTIME,STATUS 
+		FROM USERID.T_WIKI_FILE
+	</select>
+	
+	<!-- query file by treeNodeId -->    
+	<select id="queryFileListByTreeNodeID" parameterClass="int" resultMap="FileResult">
+		SELECT ID,TITLE,CATEGORY,'' AS CATEGORYNAME,CONTENT,ATTACH,AUTHOR,UPDTIME,STATUS 
+		FROM T_WIKI_FILE
+		WHERE CATEGORY IN (
+			SELECT NODEID FROM T_WIKI_TREE 
+			WHERE PARENTID = #id# OR NODEID = #id#
+		)
+	</select>
+	
+	<select id="queryFileByFileID" parameterClass="int" resultMap="FileResult">
+		SELECT F.ID AS ID,F.TITLE AS TITLE,T.NODEID AS CATEGORY,T.NODENAME AS CATEGORYNAME,
+		F.CONTENT AS CONTENT,F.ATTACH AS ATTACH,F.AUTHOR AS AUTHOR,F.UPDTIME AS UPDTIME,
+		F.STATUS AS STATUS
+		FROM T_WIKI_FILE F JOIN T_WIKI_TREE T
+		WHERE F.CATEGORY = T.NODEID AND F.ID = #id#
+	</select>
+	
+	<insert id="addNewFile" parameterClass="cn.com.jpf.wiki.pojo.File">
+		INSERT INTO T_WIKI_FILE(ID,TITLE,CATEGORY,CONTENT,ATTACH,AUTHOR,UPDTIME,STATUS)
+		VALUES(#id#,#title#,#category#,#content#,#attach#,#author#,#updtime#,#status#)
+		<selectKey resultClass="int" keyProperty="id" > 
+   			SELECT @@IDENTITY AS id 
+   		</selectKey> 
+	</insert>
+	
+	<update id="modifyFileInfo" parameterMap="procParamMap">
+		UPDATE T_WIKI_FILE 
+		<dynamic prepend="SET">
+			<isEqual property="mode" prepend="," compareValue="title">
+				TITLE = #content#
+			</isEqual>
+			<isEqual property="mode" prepend="," compareValue="content">
+				CONTENT = #content#
+			</isEqual>
+			<isEqual property="mode" prepend="," compareValue="attach">
+				ATTACH = #content#
+			</isEqual>
+			
+				,UPDTIME = now()
+			<isNotEmpty property="fileId">
+				WHERE ID = #fileId#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+</sqlMap>

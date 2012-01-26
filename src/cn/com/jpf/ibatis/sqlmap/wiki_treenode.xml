@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap           
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"           
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">    
+    
+<sqlMap namespace="Tree">
+	<typeAlias alias="tree" type="cn.com.jpf.wiki.pojo.TreeNode"/>  
+	
+	<resultMap class="tree" id="TreeResult">
+		<result property="id" column="ID"/>
+		<result property="nodeId" column="NODEID"/>
+		<result property="parentId" column="PARENTID"/>
+		<result property="nodeName" column="NODENAME"/>
+		<result property="target" column="TARGET"/>
+		<result property="isLeaf" column="ISLEAF"/>
+		<result property="status" column="STATUS"/>
+	</resultMap>
+	
+	<!-- query all treeNodes -->
+	<select id="queryAllTreeNodes" resultMap="TreeResult">
+		SELECT ID,NODEID,PARENTID,NODENAME,TARGET,ISLEAF,STATUS
+		FROM T_WIKI_TREE ORDER BY ID
+	</select>
+</sqlMap>
