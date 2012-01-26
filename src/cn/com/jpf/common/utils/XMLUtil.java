@@ -58,4 +58,11 @@ public final class XMLUtil {
 		
 		return null;
 	}
+	
+	public static String wrapStringByXmlType(String str){
+		StringBuffer sb = new StringBuffer();
+		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+		sb.append(str);
+		return sb.toString();
+	}
 }
