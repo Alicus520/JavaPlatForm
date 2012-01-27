@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 <%@ include file="../../../../common/load-css.jsp"%>
 <%@ include file="../../../../common/load-jquery.jsp"%>
+<script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery/ui.dialog.js"></script>
 <script type="text/javascript">
 	$(function(){
 				//hover states on the static widgets
@@ -34,7 +36,9 @@
 	<p><a href="#" id="dialog_link" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-newwin"></span>Open Dialog</a></p>
 	
 	<!-- ui-dialog -->
-	
+	<div id="example1">Hello, World!</div>
+	<br />
+	<button onclick="$('#example1').dialog();$(this).hide().next().show();">创建一个 Dialog</button>
                 
 </body>
 </html>
