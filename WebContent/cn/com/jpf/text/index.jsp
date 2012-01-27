@@ -9,27 +9,25 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/cn/com/jpf/text/index.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("removemoreline").click(function(){
-			alert('123');
-		});
+		
 	});
+
+	function remove(){
+
+
+		
+	}
 </script>
 </head>
 <body>
 	<div>
 		<div id="toolbar">
-			<input id="removemoreline" name="removemoreline" value="removemoreline" type="button"/>
+			<input id="remove" name="remove" value="remove" type="button" onclick="remove();"/>
 		</div>
+		source:
 		<div id="main">
 			<div id="left" class="float:left">
-				source:
 				<textarea id="source" rows="20" cols="50"></textarea>
-			</div>
-			<div id="right" class="float:right">
-				result:
-				<textarea id="result" rows="20" cols="50">
-				
-				</textarea>
 			</div>
 		</div>
 	</div>
