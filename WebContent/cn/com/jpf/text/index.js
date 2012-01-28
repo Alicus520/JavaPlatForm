@@ -27,11 +27,11 @@ jQuery(function($) {
 	});
 	
 	function afterAjaxRequestSuccessfully(data){
-		alert(data);
-		
-		var obj = eval(data);
-		
-		alert(obj);
+//		alert(data);
+//		
+//		var obj = eval(data);
+//		
+//		alert(obj);
 		
 		$('#result').val(data);
 		
