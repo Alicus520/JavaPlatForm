@@ -2,11 +2,10 @@
 
 jQuery(function($) {  
 	
-	$('#dotransfer').bind('click',function(){
+	$('#remove').bind('click',function(){
 		var source = $('#source').val();
 		var notNullFlag = checkJSParameterIsNull(source);
 		if(notNullFlag){
-			alert($('#source').val());
 			$.ajax({ 
 				url:'../est/dotext.do?method=removeMultipleLine', 
 				type:'post', //数据发送方式 
@@ -23,6 +22,8 @@ jQuery(function($) {
 			
 		}else{
 			//give the string is null error
+			alert("please input the source...");
+			$('#source').focus();
 		}
 	});
 	

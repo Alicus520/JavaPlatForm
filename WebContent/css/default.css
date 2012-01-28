@@ -1,5 +1,4 @@
 @CHARSET "UTF-8";
-
 .top{
 	 float:left;
 	 font-size: 10pt;
@@ -116,5 +115,13 @@ a{
 }
 
 input{
+	border:1px solid #ccc;
+}
+
+textarea{
+	border:1px solid #ccc;
+}
+
+.text_main_textarea{
 	border:1px solid #ccc;
 }

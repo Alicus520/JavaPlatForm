@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div>
-		<div id="leftbar"style="float:left;width:50px;margin-left:0px">
+		<div id="leftbar" style="float:left;width:50px;margin-left:0px">
 			<ul>
 	            <li>
 	            	<a href="../index.do">index</a>
@@ -23,10 +23,10 @@
 				<textarea rows="15" cols="120" id="source" name="source"></textarea>
 			</div>
 			<div id="transfer" align="right">
-				<input type="button" id="dotransfer" name="dotransfer" value="do it"/>
+				<input type="button" id="remove" name="remove" value="remove"/>
 			</div>
 			<div id="wrapresult">
-				<textarea rows="15" cols="120" id="result" name="result" ></textarea>
+				<textarea rows="15" cols="120" id="result" name="result"></textarea>
 			</div>
 		</div>
 	</div>
