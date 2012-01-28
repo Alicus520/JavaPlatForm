@@ -28,6 +28,8 @@
 
     <action-mappings>
        <action path="/text" forward="/../cn/com/jpf/text/index.jsp"></action>
+       
+       <action path="/dotext" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" />
     </action-mappings>
 	
 	<!-- Controller Definitions -->

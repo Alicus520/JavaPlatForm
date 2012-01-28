@@ -4,30 +4,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Text Page</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery/jquery-1.3.2.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/cn/com/jpf/text/index.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		
-	});
-
-	function remove(){
-
-
-		
-	}
-</script>
 </head>
 <body>
 	<div>
-		<div id="toolbar">
-			<input id="remove" name="remove" value="remove" type="button" onclick="remove();"/>
+		<div id="leftbar"style="float:left;width:50px;margin-left:0px">
+			<ul>
+	            <li>
+	            	<a href="../index.do">index</a>
+	                <a href="">removeMoreLine</a>
+	            </li>
+	         </ul>
 		</div>
-		source:
-		<div id="main">
-			<div id="left" class="float:left">
-				<textarea id="source" rows="20" cols="50"></textarea>
+		<div id="main" style="float:left;margin-left:200px;maring-top:0;margin-right:10px">
+			<div id="wrapsource">
+				<textarea rows="15" cols="120" id="source" name="source"></textarea>
+			</div>
+			<div id="transfer" align="right">
+				<input type="button" id="dotransfer" name="dotransfer" value="do it"/>
+			</div>
+			<div id="wrapresult">
+				<textarea rows="15" cols="120" id="result" name="result" ></textarea>
 			</div>
 		</div>
 	</div>
