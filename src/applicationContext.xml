@@ -25,4 +25,13 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean> 
 	
+	<!-- est main action -->
+	<bean name="/est/dotext" class="cn.com.jpf.est.action.EstAction">
+		<property name="estService">
+			<ref bean="estService" />
+		</property>
+	</bean>
+	<!-- est main service -->
+	<bean id="estService" class="cn.com.jpf.est.service.EstService"></bean>
+	
 </beans>

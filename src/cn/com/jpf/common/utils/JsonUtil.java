@@ -36,7 +36,7 @@ public final class JsonUtil {
      * @param pojoCalss 
      * @return 
      */  
-    public static Object getObject4JsonString(String jsonString, Class<?> pojoCalss) {  
+    public static Object getObject2JsonString(String jsonString, Class<?> pojoCalss) {  
     	return null;
     }  
 	
@@ -44,7 +44,7 @@ public final class JsonUtil {
      * get request parameters from HttpServeletRequest Object
      * then return by JSONObject type
      * @param request
-     * @return
+     * @return JSON Type Object
      */
     public static JSONObject getJsonInfoFromRequest(HttpServletRequest request){
     	JSONObject jsonObject = new JSONObject(); 
@@ -77,10 +77,17 @@ public final class JsonUtil {
     		
 			PrintWriter printWriter = response.getWriter();
 			printWriter.print(jsonArray);
+			printWriter.flush();
 			printWriter.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    }
+    
+    public static String object2Json(String str){
+    	
+    	return null;
+    	
     }
 }
