@@ -53,12 +53,7 @@ public class EstAction extends AbstractCommonActon {
 			
 			String json = "[{\"data\":\"" + resultStr + "\"}]";
 			
-//			System.out.println(json.replace("\r\n", "<br/>"));
-//			JSONObject jsonObject = JSONObject.fromObject(json.replace("\r\n", "<br/>"));
 			response.getWriter().print(json.replace("\r\n", "<br/>"));
-//			String demoStr = "{root:[{name:'1',value:'0'},{name:'6101',value:'西安市'},{name:'6102',value:'铜川市'}]}";
-//			response.getWriter().print(json.replace("\r\n", "<br/>"));
-//			response.getWriter().print(demoStr);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
