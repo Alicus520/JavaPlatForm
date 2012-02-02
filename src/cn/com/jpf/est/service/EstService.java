@@ -1,12 +1,9 @@
 package cn.com.jpf.est.service;
 
 import java.util.ArrayList;
+
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.apache.log4j.Logger;
 
@@ -31,17 +28,15 @@ public class EstService extends BaseService{
 		
 		source = Arrays.asList(splitStr);
 		
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		
+		List<String> result = new ArrayList<String>();
 		for(String item : source){
-			resultMap.put(item, null);
+			if(!result.contains(item)){
+				result.add(item);
+			}
 		}
 		
-		Set<String> set = resultMap.keySet();
-		Iterator<String> it = set.iterator();
-		
-		while(it.hasNext()){
-			resultStr.append(it.next().toString() + "\n");
+		for(String item : result){
+			resultStr.append(item + "\r\n");
 		}
 		
 		return resultStr.toString();

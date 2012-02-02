@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -51,5 +52,12 @@ public final class FileUtil {
 			}
 		}
 		return zipFilePath;
+	}
+	
+	public static String getTextString(InputStream is, String charSetName, int initSize){
+		String rtnValue = null;
+		
+		return rtnValue;
+		
 	}
 }

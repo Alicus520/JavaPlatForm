@@ -28,15 +28,17 @@ jQuery(function($) {
 	});
 	
 	function afterAjaxRequestSuccessfully(data){
-//		alert(data);
-//		
-//		var obj = eval(data);
-//		
-//		alert(obj);
 		
-		$('#result').val(data);
+		var jsonData = JSON.parse(data);
+		//get lengt of json
+		//JSON.parse(data).length
+		var value = "";
+		$.each(jsonData,function(index,item){
+			value += jsonData[index].data;
+		});
 		
-//		alert('successfully');
+		var finalValue = value.replace(/<br\s*\/?>/ig, "\r\n");
+		$('#result').val(finalValue);
 	}
 	
 	function afterAjaxRequestFailurely(json){

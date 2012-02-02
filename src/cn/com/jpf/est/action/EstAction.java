@@ -2,18 +2,18 @@ package cn.com.jpf.est.action;
 
 import java.io.IOException;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import cn.com.jpf.common.action.AbstractCommonActon;
-import cn.com.jpf.common.exception.JpfException;
 import cn.com.jpf.common.message.MsgManager;
 import cn.com.jpf.common.utils.JsonUtil;
 import cn.com.jpf.common.utils.StringUtil;
@@ -51,11 +51,16 @@ public class EstAction extends AbstractCommonActon {
 				
 			}
 			
-			response.getWriter().print("{success:true;data:" + resultStr + "}");
-		} catch (JSONException e) {
-			throw new JpfException(e);
-		}catch (IOException e) {
-			throw new JpfException(e);
+			String json = "[{\"data\":\"" + resultStr + "\"}]";
+			
+//			System.out.println(json.replace("\r\n", "<br/>"));
+//			JSONObject jsonObject = JSONObject.fromObject(json.replace("\r\n", "<br/>"));
+			response.getWriter().print(json.replace("\r\n", "<br/>"));
+//			String demoStr = "{root:[{name:'1',value:'0'},{name:'6101',value:'西安市'},{name:'6102',value:'铜川市'}]}";
+//			response.getWriter().print(json.replace("\r\n", "<br/>"));
+//			response.getWriter().print(demoStr);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		return null;

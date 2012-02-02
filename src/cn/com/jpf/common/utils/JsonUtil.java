@@ -1,6 +1,7 @@
 package cn.com.jpf.common.utils;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.Map;
@@ -8,8 +9,10 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import cn.com.jpf.common.exception.JpfException;
 
 public final class JsonUtil {
 	
@@ -24,7 +27,7 @@ public final class JsonUtil {
 		if(strArr != null && strArr.length > 0){
 			j = strArr.length;
 			for(i = 0; i < j; i++){
-				array.put(strArr[i]);
+				array.add(strArr[i]);
 			}
 		}
 		return array;
@@ -80,8 +83,7 @@ public final class JsonUtil {
 			printWriter.flush();
 			printWriter.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new JpfException(e);
 		}
     }
     
@@ -90,4 +92,15 @@ public final class JsonUtil {
     	return null;
     	
     }
+    
+    public static JSONObject getJSONObject4String(String str){
+    	
+    	JSONObject jsonObject = new JSONObject();
+    	
+    	jsonObject.opt(str);
+    	
+    	return jsonObject;
+    }
+    
+    
 }
