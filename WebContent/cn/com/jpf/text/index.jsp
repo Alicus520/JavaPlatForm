@@ -90,8 +90,14 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<h3>鼠标单击</h3>
-<div id="tabs">
+<div>
+	<div style="float:left"><h3>EST Tool Page</h3></div>
+	<div style="float:right">
+		<a href="../index.do">index</a>
+	</div>
+</div>
+
+<div id="tabs" style="clear:both">
   <ul class="tags">
     <li><a href="#">RomveMultipleLine</a></li>
     <li><a href="#">getFuncs</a></li>
