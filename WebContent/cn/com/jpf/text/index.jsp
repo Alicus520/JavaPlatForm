@@ -13,9 +13,12 @@ h3 span{color:#666;font-size:14px;margin-left:14px;}
 .tags li a{color:#36C;display:block;line-height:36px;padding:0 1em;text-decoration:none;}
 .tags li.current{background-color:#FFF;border-bottom-style:none;font-weight:700;height:37px;}
 .tags li.current a{color:#C63;outline:none;}
-.panes{border:1px solid #DDD;height:200em;margin-bottom:2em;padding:1em;}
+.panes{border:1px solid #DDD;height:30em;margin-bottom:2em;padding:1em;}
 </style>
 <script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/cn/com/jpf/text/index.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/javascript/jquery/easydialog.min.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/default/jquery/easydialog.css" />
 <script type="text/javascript">
 (function($) {
     // 插件名称 oTabs
@@ -90,17 +93,48 @@ $(document).ready(function() {
 <h3>鼠标单击</h3>
 <div id="tabs">
   <ul class="tags">
-    <li><a href="#">jQuery</a></li>
-    <li><a href="#">Prototype</a></li>
+    <li><a href="#">RomveMultipleLine</a></li>
+    <li><a href="#">getFuncs</a></li>
     <li><a href="#">MooTools</a></li>
   </ul>
   <div class="panes">
-    <div>Hello jQuery!
-    	<textarea rows="100" cols="100"></textarea>
+    <div>
+    	<textarea id="source" name="source"  rows="20" cols="150" ></textarea>
+    	
+    	<div id="transfer" align="right">
+			<input type="button" id="remove" name="remove" value="remove"/>
+		</div>
+		
     </div>
-    <div>Hello Prototype!</div>
-    <div>Hello MooTools!</div>
+    
+    <div>
+    	<textarea id="source" name="source"  rows="20" cols="150" ></textarea>
+    	
+    	<div id="transfer" align="right">
+			<input type="button" id="getFuncs" name="getFuncs" value="getFuncs"/>
+		</div>
+    </div>
+    <div>
+    	<textarea id="source" name="source"  rows="20" cols="150" ></textarea>
+    	
+    	<div id="transfer" align="right">
+			<input type="button" id="remove" name="remove" value="remove"/>
+		</div>
+    </div>
   </div>
 </div>
+
+<div id="resultBox" style="display:none">
+	<div align="left">
+		<div style="float:left">
+			Result
+		</div>
+		<div style="float:right">
+			<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">&times;</a>
+		</div>
+	</div>
+ 	<textarea rows="15" cols="120" id="result" name="result"></textarea>
+</div>
+
 </body>
 </html>

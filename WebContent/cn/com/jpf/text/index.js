@@ -1,5 +1,4 @@
 
-
 jQuery(function($) {  
 	
 	$('#remove').bind('click',function(){
@@ -9,7 +8,7 @@ jQuery(function($) {
 			$.ajax({ 
 				url:'../est/dotext.do?method=removeMultipleLine', 
 				type:'post', //数据发送方式 
-				dataType:'JSON', //接受数据格式 
+				dataType:'json', //接受数据格式 
 				data:{source:source},
 				async: false,
 				// Defeat browser cache by adding a timestamp to URL
@@ -28,17 +27,16 @@ jQuery(function($) {
 	});
 	
 	function afterAjaxRequestSuccessfully(data){
+		var jsonData = data[0].data;
+		var finalValue = jsonData.replace(/<br\s*\/?>/ig, "\r\n");
+		$('#result').val(finalValue);
 		
-		var jsonData = JSON.parse(data);
-		//get lengt of json
-		//JSON.parse(data).length
-		var value = "";
-		$.each(jsonData,function(index,item){
-			value += jsonData[index].data;
+		easyDialog.open({
+			  container : 'resultBox',
+			  overlay : false,
+			  fixed : false
 		});
 		
-		var finalValue = value.replace(/<br\s*\/?>/ig, "\r\n");
-		$('#result').val(finalValue);
 	}
 	
 	function afterAjaxRequestFailurely(json){

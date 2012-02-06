@@ -10,7 +10,7 @@ body{
 	  float:left;
       color:#3366CC;
       height:30px;
-      background: url(../../images/index/back.gif) repeat-x;
+      background: url(../../../images/index/back.gif) repeat-x;
 }
 
 .menu a:hover{
@@ -87,7 +87,7 @@ body{
 	  float:right;
       color:#3366CC;
       height:30px;
-      background: url(../../images/index/back.gif) repeat-x;
+      background: url(../../../images/index/back.gif) repeat-x;
 }
 
 .login a:hover{
